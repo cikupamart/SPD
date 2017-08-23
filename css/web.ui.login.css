@@ -1,0 +1,42 @@
+﻿/* Centering DIV Vertical & Horizontal */
+#outer
+{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+#outer[id]
+{
+	display: table;
+	position: static;
+}
+/* for explorer only*/
+#middle
+{
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	text-align: center;
+}
+#middle[id]
+{
+	display: table-cell;
+	vertical-align: middle;
+	position: static;
+}
+/* for explorer only */
+#inner
+{
+	position: relative;
+	top: -50%;
+	text-align: left;
+}
+/* optional (work in IE7 too) */
+#inner[id]
+{
+	position: static;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}

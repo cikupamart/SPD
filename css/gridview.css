@@ -1,0 +1,171 @@
+﻿/*======== GRID STYLE ========*/
+.gridview 
+{
+    /*
+    table-layout:fixed;*/
+    width:100%;
+    height:100%;
+	border:1px solid gray;
+}
+.gridview caption /* GridView Caption Title */
+{
+    color: #b22222;
+    letter-spacing: 2px;
+	margin:0 0 10px 0;
+	padding: 5px 5px 10px 30px;
+	font: bold 1.25em Verdana,Tahoma,sans-serif;
+	text-align: left;
+    background: #fff url( '../../App_Themes/images/tmp/table.png') no-repeat 5px 8px;    
+	border-top:1px solid gray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+}
+.gridview th    /* GridView HEADER */
+{ 
+	background-color: #0E4B9D;/*#d3d3d3;*/
+	color: #ffffff;
+	font: bold 8pt Tahoma,Verdana,sans-serif;
+	padding: 8px 8px;
+    letter-spacing: 1px;
+    border-bottom:1px solid #a9a9a9;
+    vertical-align:middle;
+    /* make it header to freeze 
+    z-index: 0;
+	border-top:1px solid gray;
+    position:relative;
+    top:-1px;*/
+}
+.gridview th a
+{
+	color: #ffffff;
+	font: bold 8pt Tahoma,Verdana,sans-serif;
+	text-decoration:none;
+	border-bottom:1px dotted;
+	padding-bottom:4px;
+}
+.gridview th a:hover
+{
+    color: #ffff99;
+}
+
+.gridview tr.normal  /* GridView ITEMS */
+{
+	background: #f5f5f5;
+	border-bottom: solid 1px #dcdcdc;
+	color: #333333;
+	font: 8pt Tahoma,Verdana;
+}
+.gridview tr.even /* GridView ALTERNATE */
+{
+	background: #f0f0f0;
+	border-bottom: solid 1px #dcdcdc;
+	color: #333333;
+	font: 8pt Tahoma,Verdana;
+}
+.gridview tr.normal td,.gridview tr.even td
+{
+	padding: 10px 10px;
+	vertical-align:top;
+}
+.gridview tr.normal td .main-text,.gridview tr.even .main-text
+{
+	font: 8pt Tahoma,Verdana;
+    font-weight: bold;
+}
+.gridview tr.normal td .desc-text,.gridview tr.even .desc-text
+{
+	font: 8pt Tahoma,Verdana;
+    color: #696969;
+}
+.gridview tr.normal td a,.gridview tr.even td a, 
+.gridview tr.gvFooter td a, .gridview tr.gvEdit td a
+{
+	color: #b22222;
+	font: bold 8pt Tahoma,Verdana,sans-serif;
+	padding:2px;
+	text-decoration: none;
+}
+.gridview tr.normal td a:hover , .gridview tr.even td a:hover,
+.gridview tr.gvFooter td a:hover, .gridview tr.gvEdit td a:hover
+{
+	color: #b22222;
+	font-weight: bold;
+	border-bottom:1px dotted #b22222;
+}
+.gridview tr.normal:hover, .gridview tr.even:hover
+{
+    background: #ffffcc;/*#fffaf0;*/
+}
+.gridview tr.gvPager td
+{
+	background-color: #d3d3d3;
+	font: 8pt Tahoma,Verdana,sans-serif;
+	letter-spacing: 1px;
+	border: 1px solid #a9a9a9;
+	padding: 4px;
+	vertical-align:top;
+}
+.gridview tr.gvFooter td ,.gridview tr.gvEdit td
+{
+	/*background-color:#ffffcc;*/
+	background-color:#ffffff;
+	letter-spacing: 0;	
+	padding: 10px 10px;
+}
+.gridview tr.gvEdit td .main-text
+{
+	font: 8pt Tahoma,Verdana;
+    font-weight: bold;
+}
+
+.gridview tr.gvEmpty td
+{
+    color: #696969;
+    background: #ffffcc;
+    text-align:center;    
+	font: bold 12pt Verdana,sans-serif;
+	letter-spacing: 1px;
+    padding:8% 0;
+}
+
+/* if theres table inside gridview-main-table */
+/*.gridview tr td .tbl_in_GV td, tr.gvFooter td .tbl_in_GV td ,tr.gvEdit td .tbl_in_GV td
+{
+	border:none;
+    padding:0px;
+}*/
+
+.gvInfo
+{
+	background-color: #A1C60F; /*#c0c0c0;*/
+	padding: 1px;
+	border: 1px solid gray;
+    table-layout:fixed;
+}
+.gvinfo-title
+{
+    font: bold 10pt Verdana,Tahoma,sans-serif;
+    margin: 4px 5px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #696969;
+}
+.gvinfo-left
+{
+    margin:2px 5px;
+    float:left;
+	color: #000;
+}
+.gvinfo-right
+{
+    margin:2px 5px;
+    float:right;
+	color: #000;
+}
+.gvinfo-content
+{
+    text-align: left;
+    vertical-align: top;
+    background-color: #f5f5f5;
+    /*border: 1px solid #808080;*/
+}
+/*======== GRID STYLE ========*/
