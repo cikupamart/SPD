@@ -535,8 +535,11 @@ if(isset($_POST['trans'])){
 				</div>
 				
 			</div>
+			
 		</div>
-		
+		<div class="pull-left">
+				<a target="_blank" href="?menu=report"><img src='../image/printer.png' width="50px" height="50px" /></a> 
+				</div>
 		
 		</form>
 		</div>
