@@ -1,0 +1,543 @@
+﻿/* Layout Tags */
+div#container /* Wrapping all contents layout */
+{
+	text-align: left;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+div#tops
+{
+	position: relative;
+	font-size: 0.7em;
+	font-family: Tahoma, Verdana, Arial;
+	color: #808080;
+	text-align: right;
+	margin-top: -20px;
+	margin-right: 15px;
+}
+div#header
+{
+	clear: both;
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+}
+img#headerlogo /* image on left header */
+{
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+img#appslogo /* image on right header */
+{
+	position: relative;
+	float: right;
+	margin-right: 15px;
+}
+div#headerlink A:link, A:visited, A:active
+{
+	color: #0B499D;
+	text-decoration: none;
+}
+div#headerlink A:hover
+{
+	color: #0B499D;
+	cursor: pointer;
+	text-decoration: underline;
+}
+/* Misc Info on header (below on a Menu) */
+div#headerinfo
+{
+	clear: both;
+	padding: 5px;
+	font-family: Verdana;
+	color: #808080;
+	font-size: 10px;
+	height: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+div#headerinfo .left
+{
+	position: relative;
+	float: left;
+	text-align: left;
+}
+div#headerinfo .right
+{
+	float: right;
+	text-align: right;
+	margin-right: 15px;
+}
+div#headerinfo .right span
+{
+	vertical-align: top;
+}
+div#headerinfo img
+{
+	border: 1px solid;
+}
+
+div#headerinfo .right a
+{
+	font-size:8pt;
+}
+div#headerinfo .right a:link,div#headerinfo .right a:visited
+{
+	color: #6666FF;
+}
+div#headerinfo .right a:hover
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+div#headerinfo .right a:active
+{
+	color: #6666FF;
+}
+
+div#contents
+{
+	clear: both;
+	display: block;
+	margin: 0;
+	width: 100%;
+}
+div#footer
+{
+	clear: both;
+	display: block;
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #696969;
+	margin-top: 5px;
+	width: 100%;
+}
+div#footer .ptmn-line
+{
+	clear: both;
+	margin: 10px 5px 0 5px;
+}
+div#footer .left /* footers info on left (floating) */
+{
+	position: relative;
+	float: left;
+	text-align: left;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	padding: 5px 5px 0px 5px;
+	font-family: Verdana;
+	font-size: xx-small;
+	font-weight: normal;
+}
+
+div#footer .right /* footers info on right (floating) */
+{
+	position: relative;
+	float: right;
+	text-align: right;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	padding: 5px 5px 0px 5px;
+}
+div#footer A:link, A:visited, A:active
+{
+	color: #0B499D;
+	text-decoration: none;
+}
+div#footer A:hover
+{
+	color: #0B499D;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+/* MESSAGES PANEL */
+#INFO
+{
+	position: relative;
+	clear: both;
+	width: auto !important;
+	width: 100%;
+	left: 0px;
+}
+.hide
+{
+	display: none;
+	visibility: hidden;
+}
+.error
+{
+	border: solid 1px #CC0000;
+	background: #f7cbca url('../../App_Themes/images/msg/err.gif') no-repeat 8px 7px;
+	color: #CC0000;
+	font-size: 8pt;
+	padding: 4px 4px 4px 25px;
+	text-align: left;
+}
+.warning
+{
+	border: solid 1px #DEDEDE;
+	background: #FFFFCC url('../../App_Themes/images/msg/warn.gif') 8px 7px no-repeat;
+	color: #666;
+	font-size: 8pt;
+	padding: 4px 4px 4px 25px;
+	text-align: left;
+}
+.success
+{
+	border: solid 1px #349534;
+	background: #C9FFCA url('../../App_Themes/images/msg/ok.gif') 8px 7px no-repeat;
+	color: #008000;
+	font-size: 8pt;
+	padding: 4px 4px 4px 25px;
+	text-align: left;
+}
+.error span.title, .warning span.title, .success span.title
+{
+	font-weight: bold;
+	font-size: larger;
+	text-transform: capitalize;
+}
+.error hr, .warning hr, .success hr
+{
+	height: 1px;
+	width: 100%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.error hr
+{
+	border-color: #CC0000;
+}
+.warning hr
+{
+	border-color: #666666;
+}
+.success hr
+{
+	border-color: #008000;
+}
+.error ul, .warning ul, .success ul
+{
+	margin-top: 0px;
+	margin-left: 10px;
+	padding-left: 10px;
+	margin-bottom: 2px;
+	list-style-type: square;
+	list-style-position: outside;
+}
+/* END-MESSAGES PANEL */
+
+/* Custom CLASSES */
+.blockquote
+{
+	margin: 5px 20px 20px 20px;
+}
+.hr
+{
+	height: 1px;
+	border-top: 1px dotted #b22222;
+	margin: 5px 0;
+}
+.title-0 /*without image**/
+{
+	padding-left: 4px;
+	padding-bottom: 4px;
+	border-bottom: 1px dotted #b22222;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: Verdana, Tahoma, Arial;
+	font-size: 1.7em;
+	color: #b22222;
+	letter-spacing: 3px;
+}
+.title-0 .subtitle
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: Tahoma, Arial;
+	font-size: 0.65em;
+	font-style: italic;
+	color: #808080;
+	letter-spacing: 1px;
+}
+.title-1
+{
+	padding-left: 35px;
+	padding-bottom: 4px;
+	border-bottom: 1px dotted #b22222;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: Verdana, Tahoma, Arial;
+	font-size: 1.7em;
+	color: #b22222;
+	letter-spacing: 3px;
+}
+.title-1 img
+{
+	margin-bottom: -5px;
+	margin-left: -30px;
+}
+.spasi
+{
+	height: 5px;
+}
+.spacer
+{
+	height: 15px;
+}
+
+.lbl-bold
+{
+	font-size: 8pt;
+	font-weight: bold;
+}
+.lbl-main
+{
+	font-size: 8pt;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+.lbl-desc
+{
+	font: italic 8pt Tahoma,Verdana;
+	color: #a9a9a9;
+	letter-spacing: 1px;
+}
+.txt-style-mandatory
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	padding: 2px;
+	background-color: #FF9;
+	border: 1px solid #a9a9a9;
+}
+.txt-style-mandatory-numeric
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	padding: 2px;
+	background-color: #FF9;
+	border: 1px solid #a9a9a9;
+	text-align: right;
+}
+.txt-numeric
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	padding: 2px;
+	border: 1px solid #a9a9a9;
+	text-align: right;
+}
+.ddl-style-mandatory
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	padding: 2px;
+	background-color: #FF9;
+	border: 1px solid #a9a9a9;
+}
+
+.img-style-popup, input[type="image"]
+{
+	/*position: relative;*/ /* if set relative, image will has absolute position when container is overflow (bugs)*/
+	top: 2px;
+	left: 1px;
+	cursor: pointer;
+}
+/* CSS hack for firefox only */
+html > /**/ body .img-style-popup, html > /**/ body input[type="image"]
+{
+	position: relative;
+	top: 3px;
+	left: 1px;
+	cursor: pointer;
+}
+.img-calendar
+{
+	/*position: relative;*/ /* if set relative, image will has absolute position when container is overflow (bugs)*/
+	top: 2px;
+	left: 1px;
+	cursor: pointer;
+}
+html > /**/ body .img-calendar
+{
+	position: relative;
+	top: 3px;
+	left: -1px;
+	cursor: pointer;
+}
+.no-float
+{
+	clear: both;
+	float: none; /*padding-top:4px;*/
+	padding-bottom: 4px;
+}
+
+/* 3 Columns */
+.wrap-cols
+{
+	clear: both;
+	margin: 20px 5px 10px 5px;
+}
+.col-left
+{
+	float: left;
+	width: 33%;
+	margin-left: 0;
+}
+.col-middle
+{
+	float: left;
+	width: 34%;
+	margin-left: 0;
+}
+.col-right
+{
+	float: left;
+	width: 33%;
+	margin-left: 0;
+}
+.ptmn-red /* kiri */
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #FB000C;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+.ptmn-green /* ditengah*/
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #9EC30F;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+.ptmn-blue /* kanan */
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #0E4B9D;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+.ptmn-red span, .ptmn-green span, .ptmn-blue span, .ptmn_red span, .ptmn_green span, .ptmn_blue span
+{
+	color: #fff;
+	font-size: 14px;
+	font-style: italic;
+}
+.blockquote-ptmn
+{
+	margin: 0 10px 10px 10px;
+}
+.wrap-ptmn
+{
+	clear: both;
+	margin: 10px;
+}
+.ptmn_red
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #FB000C;
+	border: 1px solid #000;
+}
+.ptmn_green
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #9EC30F;
+	border: 1px solid #000;
+}
+.ptmn_blue
+{
+	padding: 4px 4px 4px 8px;
+	margin-bottom: 10px;
+	background: #0E4B9D;
+	border: 1px solid #000;
+}
+
+/* for Footer */
+.ptmn-red-hr /* kiri */
+{
+	padding: 1px;
+	margin-bottom: 2px;
+	background: #FB000C;
+}
+.ptmn-green-hr /* tengah*/
+{
+	padding: 1px;
+	margin-bottom: 2px;
+	background: #9EC30F;
+}
+.ptmn-blue-hr /* kanan */
+{
+	padding: 1px;
+	margin-bottom: 2px;
+	background: #0E4B9D;
+}
+.ptmn td
+{
+	border-bottom: 1px dotted #a9a9a9;
+}
+
+
+
+/* box */
+.box-title
+{
+	color: #fff;
+	background: #9EC30F;
+	padding: 4px 4px 4px 8px;
+	font-size: 14px;
+	font-style: italic;
+	margin: 0 -4px 10px -4px;
+}
+.box
+{
+	float: left;
+	width: 45%;
+	margin-left: 0;
+	border: 1px solid #696969;
+	margin: 0 4px 10px 4px;
+	padding: 0 4px 10px 4px;
+}
+.toolbox
+{
+	clear: both;
+	width: 100%;
+	width: auto !important;
+	border: 1px solid #a9a9a9;
+	padding: 6px 8px 8px 8px;
+	background-color: #dcdcdc;
+}
+
+/* Misc Tabs 
+.tabs-info-icon
+{
+	display: inherit;
+	margin-top:2px;
+	float: right;
+	clip: rect(auto, auto, auto, auto);
+}*/
+.tabs-toolbox
+{
+	/*margin-left: -1px; 	margin-right: -1px; 	margin-bottom: -1px; 	background-color: #A6C9E2;*/
+	padding: 8px;
+	border: 1px solid #75ABD2;
+	background-color: #6FA7D1;
+}
+
+/* ASP.NET validation styling*/
+input.error  { border: 1px solid red; }
+select.error { border: 1px solid red; }
