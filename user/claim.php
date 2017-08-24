@@ -40,7 +40,9 @@ if($_POST["makan"]){
 			if ($query1) {
 				echo "<script>alert('$hrglain')</script>";
 	echo "<script>document.location='?menu=claim&aksi=edit&nmr=$id_panjar&panjar=$uangpanjar'</script>";
-}makan();
+}
+makan();
+trans();
 $id_panjar = $editDb["id_panjar"];
 if(isset($_POST['trans'])){
 			$tgl_trans = $_POST['tgl_trans'];			
@@ -57,90 +59,91 @@ if(isset($_POST['trans'])){
 	//header('location:index.php?menu=view');
 }
 }
-			trans();
-?>
-<style type="text/css">
-.panel.panel-default .panel-body .table.table-striped.table-bordered.table-hover thead tr th {
-	text-align: center;
-}
-</style>
 
-<div>
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			Aplikasi Panjar Pertamina
-		</div>
-		<div class='panel-body'>
-			
-			<form action="" method="POST" class="form-horizontal">
-						<div class="form-group">
-							<label class="control-label col-lg-4">No Pekerja</label>
-							<div class="col-lg-4">
-								<input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["no_pek"];?>">
-								
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Nama Pekerja</label>
-							<div class="col-lg-4">
-								<input type="text" name="nama_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["nama_pek"];?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">No Trip</label>
-							<div class="col-lg-4">
-								<input type="text" name="no_trip" autofocus required class="form-control" readonly value="<?php echo $editDb["no_trip"];?>" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tujuan</label>
-							<div class="col-lg-4">
-							<input type="text" name="pan_tujuan" autofocus required class="form-control" readonly value="<?php echo $editDb["pan_tujuan"];?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tanggal Keberangkatan</label>
-							<div class="col-lg-2">
-								<input type="date"  class="form-control" autofocus required placeholder="1998-05-09" name="tgl_acara" readonly value="<?php echo $editDb["tgl_acara"];?>"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tanggal Kembali</label>
-							<div class="col-lg-2">
-								<input type="date"  class="form-control" autofocus required placeholder="1998-05-09" name="tgl_kmbl" readonly value="<?php echo $editDb["tgl_kmbl"];?>" />
-							</div>
-						</div>											
-		
-		<div class='panel panel-default'>
-		<div class='panel-heading'>
-			Rincian Makan
-		</div>
-		<div class='panel-body'>
-		<div class="col-lg-2">
-								<a href="#myModal4" class="btn btn-primary btn-rect" data-toggle="modal">Tambah</a><p>
-							</div>	
-			<table class="table table-striped table-bordered table-hover" border="2">
-				<thead>
-					<tr>
-						<th rowspan="2" text=center align=center >No</th>
-						<th rowspan="2">Tanggal</th>			
-						<th colspan="5" align="center" valign="middle" nowrap="nowrap"  >Tujangan Makan</th>	
-						<th rowspan="2" align="center" valign="middle">Accommodation</th>	
-						<th rowspan="2" align="center" valign="middle">Harga (Rp)</th>			
-						<th rowspan="2" align="center" valign="middle">Daily Allowance</th>
-						<th rowspan="2" align="center" valign="middle">Keterangan</th>
-						<th width="60" rowspan="2" align="center" valign="middle">Aksi</th>
-					</tr>
-					<tr>
-						<th align=center valign="middle" >Makan Pagi</th>
-						<th align="center" valign="middle">Makan Siang</th>
-						<th>Makan Malam</th>
-						<th>Makan lainnya</th>
-						<th>Harga (Rp)</th>
-					</tr>
-				</thead>
-				
-			<?php
+?>
+    <style type="text/css">
+        .panel.panel-default .panel-body .table.table-striped.table-bordered.table-hover thead tr th {
+            text-align: center;
+        }
+    </style>
+
+    <div>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+                Aplikasi Panjar Pertamina
+            </div>
+            <div class='panel-body'>
+
+                <form action="" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">No Pekerja</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?php echo $editDb['no_pek'];?>">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Nama Pekerja</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="nama_pek" autofocus required class="form-control" readonly value="<?php echo $editDb['nama_pek'];?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">No Trip</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="no_trip" autofocus required class="form-control" readonly value="<?php echo $editDb['no_trip'];?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tujuan</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="pan_tujuan" autofocus required class="form-control" readonly value="<?php echo $editDb['pan_tujuan'];?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tanggal Keberangkatan</label>
+                        <div class="col-lg-2">
+                            <input type="date" class="form-control" autofocus required placeholder="1998-05-09" name="tgl_acara" readonly value="<?php echo $editDb['tgl_acara'];?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tanggal Kembali</label>
+                        <div class="col-lg-2">
+                            <input type="date" class="form-control" autofocus required placeholder="1998-05-09" name="tgl_kmbl" readonly value="<?php echo $editDb['tgl_kmbl'];?>" />
+                        </div>
+                    </div>
+
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>
+                            Rincian Makan
+                        </div>
+                        <div class='panel-body'>
+                            <div class="col-lg-2">
+                                <a href="#myModal4" class="btn btn-primary btn-rect" data-toggle="modal">Tambah</a>
+                                <p>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover" border="2">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" text=center align=center>No</th>
+                                        <th rowspan="2">Tanggal</th>
+                                        <th colspan="5" align="center" valign="middle" nowrap="nowrap">Tujangan Makan</th>
+                                        <th rowspan="2" align="center" valign="middle">Accommodation</th>
+                                        <th rowspan="2" align="center" valign="middle">Harga (Rp)</th>
+                                        <th rowspan="2" align="center" valign="middle">Daily Allowance</th>
+                                        <th rowspan="2" align="center" valign="middle">Keterangan</th>
+                                        <th width="60" rowspan="2" align="center" valign="middle">Aksi</th>
+                                    </tr>
+                                    <tr>
+                                        <th align=center valign="middle">Makan Pagi</th>
+                                        <th align="center" valign="middle">Makan Siang</th>
+                                        <th>Makan Malam</th>
+                                        <th>Makan lainnya</th>
+                                        <th>Harga (Rp)</th>
+                                    </tr>
+                                </thead>
+
+                                <?php
 			
 				$pjrSql = "SELECT * FROM transmakan where id_panjar = '".$editDb['id_panjar']."' ";
 				$pjrQry = mysql_query($pjrSql , $server)  or die ("Query panjardb salah : ".mysql_error());
@@ -148,26 +151,48 @@ if(isset($_POST['trans'])){
 				while ($pjr = mysql_fetch_array($pjrQry)){
 				$nomor++;
 			?>
-				<tbody>
-					<tr>
-						<td align=center ><?php echo  $nomor; ?></td> 
-						<td align=center ><?php echo $pjr['tgl'];?></td>
-						<td align=center ><?php echo $pjr['mkn_pg'];?></td>
-						<td align=center ><?php echo $pjr['mkn_sg'];?></td>
-						<td align=center ><?php echo $pjr['mkn_ml'];?></td>
-						<td align=center ><?php echo $pjr['dll'];?></td>
-						<td align=center ><?php echo number_format($pjr['hrglain'],"2",",",".");?></td>
-						<td align=center ><?php echo $pjr['acomodation'];?></td>
-						<td align=center ><?php echo number_format($pjr['BiayaAcom'],"2",",",".");?></td>
-						<td align=center ><?php echo $pjr['daily'];?></td>
-						<td align=center ><?php echo $pjr['ket'];?></td>
-						<td> 
-						  <div class='btn-group'>
-						  <a href="?menu=claimdelete&aksi=hapus&nmr=<?php echo $pjr['id_makan']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png'/></a> 
-						  </div>
-						</td>
-					</tr>
-					<?php 
+                                    <tbody>
+                                        <tr>
+                                            <td align=center>
+                                                <?php echo  $nomor; ?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['tgl'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['mkn_pg'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['mkn_sg'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['mkn_ml'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['dll'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo number_format($pjr['hrglain'],"2",",",".");?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['acomodation'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo number_format($pjr['BiayaAcom'],"2",",",".");?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['daily'];?>
+                                            </td>
+                                            <td align=center>
+                                                <?php echo $pjr['ket'];?>
+                                            </td>
+                                            <td>
+                                                <div class='btn-group'>
+                                                    <a href="?menu=claimdelete&aksi=hapus&nmr=<?php echo $pjr['id_makan']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png' /></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php 
 					$pagi+=$pjr['mkn_pg'];
 					$siang+=$pjr['mkn_sg'];
 					$malam+=$pjr['mkn_ml'];
@@ -183,18 +208,18 @@ if(isset($_POST['trans'])){
 					
 					} 					
 					?>
-				
-					<tr style="background-color: yellow;"">
-						<td colspan="2" align=center><label>JUMLAH</td>
+
+                                        <tr style="background-color: yellow">
+						<td colspan="2 " align=center><label>JUMLAH</td>
 						<td align=center><label><?php echo $pagi;?></td>
 						<td align=center><label><?php echo $siang;?></td>
 						<td align=center><label><?php echo $malam;?></td>
 						<td align=center><label><?php echo $lain;?></td>
 						<td align=center><label><?php echo $hrglain;?></td>
 						<td align=center><label><?php echo $com;?></td>
-						<td align=center><label><?php echo number_format($hcom,"2",",",".");?></td>
+						<td align=center><label><?php echo number_format($hcom,"2 ",", ",". ");?></td>
 						<td align=center><label><?php echo $Daily_Allowence;?></td>
-						<td colspan="2" align=center></td>
+						<td colspan="2 " align=center></td>
 					</tr>
 				
 				</tbody>	
@@ -206,10 +231,10 @@ if(isset($_POST['trans'])){
 			Rincian Transportasi
 		</div>
 		<div class='panel-body'>
-		<div class="col-lg-2">
+		<div class="col-lg-2 ">
 								<a href="#myModal5" class="btn btn-primary btn-rect" data-toggle="modal">Tambah</a><p>
 							</div>	
-			<table class="table table-striped table-bordered table-hover" border="0|0">
+			<table class="table table-striped table-bordered table-hover " border="0|0 ">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -221,13 +246,13 @@ if(isset($_POST['trans'])){
 						<th>Harga<br>(Rp)</th>
 						<th>Total<br>(Rp)</th>
 						<th>Keterangan</th>
-						<th width="60" rowspan="2" align="center" valign="middle">Aksi</th>						
+						<th width="60 " rowspan="2 " align="center " valign="middle ">Aksi</th>						
 					</tr>
 				</thead>
 				
 			<?php
 			
-				$transSql = "SELECT * FROM transportasi where id_panjar = '".$editDb['id_panjar']."' ";
+				$transSql = "SELECT * FROM transportasi where id_panjar='".$editDb['id_panjar']."' ";
 				$transQry = mysql_query($transSql , $server)  or die ("Query transdb salah : ".mysql_error());
 				$nomor  = 0 ; 
 				
@@ -238,7 +263,7 @@ if(isset($_POST['trans'])){
 				<tbody>
 					<tr>
 						<?
-						$d= preg_replace("/[^0-9]/", "", $trans['harga'])*$trans['qty'];
+						$d= preg_replace("/[^0-9]/ ", " ", $trans['harga'])*$trans['qty'];
 						?>
 						<td align=center ><?php echo  $nomor; ?></td> 
 						<td align=center ><?php echo $trans['tgl_trans'];?></td>
@@ -247,25 +272,25 @@ if(isset($_POST['trans'])){
 						<td align=center ><?php echo $trans['qty'];?></td>
 						<td align=center ><?php echo $trans['jns_trans'];?></td>
 						<td align=center ><?php echo $trans['harga'];?></td>
-						<td align="center"><?php echo number_format(preg_replace("/[^0-9]/", "", $trans['harga'])*$trans['qty'],"2",",","."); ?> </td>
+						<td align="center "><?php echo number_format(preg_replace("/[^0-9]/ ", " ", $trans['harga'])*$trans['qty'],"2 ",", ",". "); ?> </td>
 						<td align=center ><?php echo $trans['keterangan'];?></td>
 						<td>
 						  <div class='btn-group'>
-						  <a href="?menu=claim2delete&aksi=hapus&nmr=<?php echo $trans['id_trans']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png'/></a> 
-						  </div>
-						</td>
-					</tr>
-					<?php 
+						  <a href="?menu=claim2delete&aksi=hapus&nmr=<?php echo $trans[ 'id_trans']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png' /></a>
+                        </div>
+                        </td>
+                        </tr>
+                        <?php 
 					$a+= preg_replace("/[^0-9]/", "", $trans['harga'])*$trans['qty'];
 					} ?>
-					<?php
+                        <?php
 					$qry = mysql_query("select SUM() as jumlahtrans from transportasi where id_panjar='".$_GET["nmr"]."' ");
 					$data = mysql_fetch_array($qry);
 					?>
-					<tr style="background-color: yellow;"">
-						<td colspan="7" align=center><label>JUMLAH</td>
-						<td align="center"><label><?php echo number_format($a,"2",",",".");?></td>
-						<td colspan="2" align=center></td>
+                            <tr style="background-color: yellow;">
+						<td colspan="7 " align=center><label>JUMLAH</td>
+						<td align="center "><label><?php echo number_format($a,"2 ",", ",". ");?></td>
+						<td colspan="2 " align=center></td>
 					</tr>
 				
 				</tbody>	
@@ -280,121 +305,121 @@ if(isset($_POST['trans'])){
 			Perhitungan Rincian Panjar Pertamina
 		</div>
 		<div class='panel-body'>
-		<div class="col-md-12">
+		<div class="col-md-12 ">
 			<p><b>Meal Allowence</b></p>
 		</div>
 		
 		<!--Makan Pagi -->
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 			<p>Uang Makan Pagi</p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p><?php echo $pagi?></p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p>x</p>
 		</div>		
-		<div class="col-md-1">
-			<p class="pull-right">75.000</p>
+		<div class="col-md-1 ">
+			<p class="pull-right ">75.000</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>=</p>
 		</div>	
-		<div class="col-sm-1">
-			<p class="pull-left">Rp.</p>
+		<div class="col-sm-1 ">
+			<p class="pull-left ">Rp.</p>
 		</div>
-		<div class="col-sm-1" align="right">
-			<p class="pull-right"><?php echo number_format($pagi*75000,2,",",".") ?></p>
+		<div class="col-sm-1 " align="right ">
+			<p class="pull-right "><?php echo number_format($pagi*75000,2,", ",". ") ?></p>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-12 ">
 		</div> 
 		
 		<!--Makan Siang -->
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 			<p>Uang Makan Siang</p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p><?php echo $siang?></p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p>x</p>
 		</div>		
-		<div class="col-md-1">
-			<p class="pull-right">75.000</p>
+		<div class="col-md-1 ">
+			<p class="pull-right ">75.000</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>=</p>
 		</div>	
-		<div class="col-md-1">
-			<p class="pull-left">Rp.</p>
+		<div class="col-md-1 ">
+			<p class="pull-left ">Rp.</p>
 		</div>
-		<div class="col-md-1" align="right">
-			<p class="pull-right"><?php echo number_format($siang*75000,2,",",".") ?></p>
+		<div class="col-md-1 " align="right ">
+			<p class="pull-right "><?php echo number_format($siang*75000,2,", ",". ") ?></p>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-12 ">
 		</div>
 		
 		<!--Makan Malam -->
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 			<p>Uang Makan Malam</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p><?php echo $malam?></p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>x</p>
 		</div>		
-		<div class="col-md-1">
-			<p class="pull-right">75.000</p>
+		<div class="col-md-1 ">
+			<p class="pull-right ">75.000</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>=</p>
 		</div>	
-		<div class="col-md-1">
-			<p class="pull-left">Rp.</p>
+		<div class="col-md-1 ">
+			<p class="pull-left ">Rp.</p>
 		</div>
-		<div class="col-md-1" align="right">
-			<p class="pull-right"><?php echo number_format($malam*75000,2,",",".") ?></p>
+		<div class="col-md-1 " align="right ">
+			<p class="pull-right "><?php echo number_format($malam*75000,2,", ",". ") ?></p>
 		</div>
 		<!--invoice -->
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 			<p>Uang Makan ada Invoice</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p></p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p></p>
 		</div>		
-		<div class="col-md-1">
-			<p class="pull-right"></p>
+		<div class="col-md-1 ">
+			<p class="pull-right "></p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>=</p>
 		</div>	
-		<div class="col-md-1">
-			<p class="pull-left">Rp.</p>
+		<div class="col-md-1 ">
+			<p class="pull-left ">Rp.</p>
 		</div>
-		<div class="col-md-1" align="right">
-			<p class="pull-right"><?php echo number_format($hrglain,2,",",".") ?></p>
-		</div>
-		
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
-			<p class=""><b>Total</b></p>
-		</div>
-		<div class="col-md-1">
-			<p class="pull-left"><b>Rp.</b></p>
-		</div>
-		<div class="col-md-1">
-			<p class="pull-right"><b><u><?php echo number_format(($malam*75000)+($siang*75000)+($pagi*75000)+$hrglain,2,",",".") ?></u></b></p>
+		<div class="col-md-1 " align="right ">
+			<p class="pull-right "><?php echo number_format($hrglain,2,", ",". ") ?></p>
 		</div>
 		
-		<div class="col-md-12"><p></p></div>
-		<div class="col-md-12"><p></p></div>
+		<div class="col-md-4 ">
+		</div>
+		<div class="col-md-4 ">
+			<p class=" "><b>Total</b></p>
+		</div>
+		<div class="col-md-1 ">
+			<p class="pull-left "><b>Rp.</b></p>
+		</div>
+		<div class="col-md-1 ">
+			<p class="pull-right "><b><u><?php echo number_format(($malam*75000)+($siang*75000)+($pagi*75000)+$hrglain,2,", ",". ") ?></u></b></p>
+		</div>
 		
-		<div class="col-md-12">
+		<div class="col-md-12 "><p></p></div>
+		<div class="col-md-12 "><p></p></div>
+		
+		<div class="col-md-12 ">
 			<p><b>Accommodation</b></p>
 		</div>
 		
@@ -406,139 +431,140 @@ if(isset($_POST['trans'])){
 			?>					
 					
 			
-			<div class="col-md-4">
+			<div class="col-md-4 ">
 				<p>Accommodation</p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p><?php echo $item['acomo']?></p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p>x</p>
 			</div>		
-			<div class="col-md-1">
-				<p class="pull-right"><?php echo number_format($item['biaya'],2,",",".") ?></p>
+			<div class="col-md-1 ">
+				<p class="pull-right "><?php echo number_format($item['biaya'],2,", ",". ") ?></p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p>=</p>
 			</div>	
-			<div class="col-md-1">
-				<p class="pull-left">Rp.</p>
+			<div class="col-md-1 ">
+				<p class="pull-left ">Rp.</p>
 			</div>
-			<div class="col-md-1" align="right">
-				<p class="pull-right"><?php echo number_format($item['acomo']*$item['biaya'],2,",",".")?></p>
+			<div class="col-md-1 " align="right ">
+				<p class="pull-right "><?php echo number_format($item['acomo']*$item['biaya'],2,", ",". ")?></p>
 			</div>
-			<div class="col-md-12"></div>
+			<div class="col-md-12 "></div>
 			
 		<?php
 		}	
 		?>
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 				<p></p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p>Total</p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p></p>
 			</div>		
-			<div class="col-md-1">
-				<p class="pull-right"></p>
+			<div class="col-md-1 ">
+				<p class="pull-right "></p>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-1 ">
 				<p>=</p>
 			</div>	
-			<div class="col-md-1">
-				<p class="pull-left">Rp.</p>
+			<div class="col-md-1 ">
+				<p class="pull-left ">Rp.</p>
 			</div>
-			<div class="col-md-1" align="right">
-				<p class="pull-right"><?php echo number_format($SubtotalAco,2,",",".")?></p>
+			<div class="col-md-1 " align="right ">
+				<p class="pull-right "><?php echo number_format($SubtotalAco,2,", ",". ")?></p>
 			</div>
-			<div class="col-md-12"></div>
-		<div class="col-md-12"><p></p></div>
-			<div class="col-md-12"><p></p></div>
+			<div class="col-md-12 "></div>
+		<div class="col-md-12 "><p></p></div>
+			<div class="col-md-12 "><p></p></div>
 		
 		
-		<div class="col-md-4">
+		<div class="col-md-4 ">
 			<p><b>Daily Allowence</b></p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p><?php echo $Daily_Allowence?></p>
 		</div>
-		<div class="col-sm-1">
+		<div class="col-sm-1 ">
 			<p>x</p>
 		</div>		
-		<div class="col-md-1">
-			<p class="pull-right">100.000</p>
+		<div class="col-md-1 ">
+			<p class="pull-right ">100.000</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 ">
 			<p>=</p>
 		</div>	
-		<div class="col-sm-1">
-			<p class="pull-left">Rp.</p>
+		<div class="col-sm-1 ">
+			<p class="pull-left ">Rp.</p>
 		</div>
-		<div class="col-sm-1" align="right">
-			<p class="pull-right"><?php echo number_format($Daily_Allowence*100000,2,",",".") ?></p>
+		<div class="col-sm-1 " align="right ">
+			<p class="pull-right "><?php echo number_format($Daily_Allowence*100000,2,", ",". ") ?></p>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-12 ">
 		</div> 
 		
 			
 		</div>
 		</div>
+		
 		<?php
 		$STtl=$SubtotalAco+($malam*75000)+($siang*75000)+($pagi*75000)+$hrglain+($Daily_Allowence*100000)+$a;
 		?>
-		<div class="col-md-5"></div>
-		<div class="col-md-7">
+		<div class="col-md-5 "></div>
+		<div class="col-md-7 ">
 			<div class='panel panel-default'>
 				<div class='panel-body'>
-					<div class="col-md-3">
-						<div class="pull-left">Sub Total</div>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Sub Total</div>
 					</div>
-					<div class="col-md-1">
-						<div class="pull-left">=</div>
+					<div class="col-md-1 ">
+						<div class="pull-left ">=</div>
 					</div>
-					<div class="col-md-3">
-						<div class="pull-left">Rp.</div>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Rp.</div>
 					</div>
-					<div class="col-md-2">
-						<div class="pull-right"><?php echo number_format($STtl,2,",",".") ?></div>
-					</div>
-				</div>
-				<div class='panel-body'>
-					<div class="col-md-3">
-						<div class="pull-left">Panjar Dinas</div>
-					</div>
-					<div class="col-md-1">
-						<div class="pull-left">=</div>
-					</div>
-					<div class="col-md-3">
-						<div class="pull-left">Rp.</div>
-					</div>
-					<div class="col-md-2">
-						<div class="pull-right"><?php echo number_format($uangpanjar,2,",",".") ?></div>
+					<div class="col-md-2 ">
+						<div class="pull-right "><?php echo number_format($STtl,2,", ",". ") ?></div>
 					</div>
 				</div>
 				<div class='panel-body'>
-					<div class="col-md-3">
-						<div class="pull-left">Total Claim</div>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Panjar Dinas</div>
 					</div>
-					<div class="col-md-1">
-						<div class="pull-left">=</div>
+					<div class="col-md-1 ">
+						<div class="pull-left ">=</div>
 					</div>
-					<div class="col-md-3">
-						<div class="pull-left">Rp.</div>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Rp.</div>
 					</div>
-					<div class="col-md-2">
-						<div class="pull-right"><?php echo number_format($STtl-$uangpanjar,2,",",".") ?></div>
+					<div class="col-md-2 ">
+						<div class="pull-right "><?php echo number_format($uangpanjar,2,", ",". ") ?></div>
+					</div>
+				</div>
+				<div class='panel-body'>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Total Claim</div>
+					</div>
+					<div class="col-md-1 ">
+						<div class="pull-left ">=</div>
+					</div>
+					<div class="col-md-3 ">
+						<div class="pull-left ">Rp.</div>
+					</div>
+					<div class="col-md-2 ">
+						<div class="pull-right "><?php echo number_format($STtl-$uangpanjar,2,", ",". ") ?></div>
 					</div>
 				</div>
 				
 			</div>
 			
 		</div>
-		<div class="pull-left">
-				<a target="_blank" href="?menu=report"><img src='../image/printer.png' width="50px" height="50px" /></a> 
+		<div class="pull-left ">
+				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $uangpanjar?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
 				</div>
 		
 		</form>
@@ -550,6 +576,6 @@ if(isset($_POST['trans'])){
 } ?>
 <?php
 }else{
-	header("Location:../index.php");
+	header("Location:../index.php ");
 }
 ?>
