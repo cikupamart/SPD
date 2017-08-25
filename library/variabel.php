@@ -60,24 +60,24 @@ function makan(){
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Makan Lainnya</label>
-						<input type="number" required class="form-control" name="dll"/>
+						<input type="number" class="form-control" name="dll"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Harga</label>
-						<input type="number" required class="form-control" name="hrglain"/>
+						<input type="number" class="form-control" name="hrglain"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Accomodation</label>
-						<input type="number" required class="form-control" name="acomodation"/>
+						<input type="number" class="form-control" name="acomodation"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Biaya</label>
-						<input type="number" required class="form-control" name="BiayaAcom"/>
+						<input type="number" class="form-control" name="BiayaAcom"/>
 					</div>
 				<form action="" method="post">
 					<div class="form-group">
 						<label class="control-label col-lg">Daily Allowance</label>
-						<input type="number" required class="form-control" name="daily"/>
+						<input type="number" class="form-control" name="daily"/>
 					</div>
 				<form action="" method="post">
 					<div class="form-group">
@@ -151,3 +151,59 @@ function trans(){
 <?php
 }
 ?>
+<form action="?menu=user" method="POST">
+	<div id="user" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Tambah User</h4>
+				</div>
+				<div class="modal-body">
+				
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Nama Pegawai</label>
+							<input type="text" required class="form-control" name="nama"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Jabatan</label>
+							<input type="text" required class="form-control" name="jabatan"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">penempatan</label>
+							<input type="text" required class="form-control" name="penempatan"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Username</label>
+							<input type="text" required class="form-control" name="username" value=""/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Password</label>
+							<input type="password" required class="form-control" name="password" value=""/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Re-Password</label>
+							<input type="password" required class="form-control" name="repassword" value=""/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Re-Password</label>
+							<select name="akses" class="form-control">
+								<option>--- Pilih Hak Akses ---</option>
+								<option value="Admin">Admin</option>
+								<option value="User">User</option>
+							</select>
+						</div>
+							<input type="submit" class="btn btn-primary" name="adduser" value="Tambah"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

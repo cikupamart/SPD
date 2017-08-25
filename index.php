@@ -40,7 +40,7 @@ include_once("library/koneksi.php");
 
 if(isset($_POST['login'])){ //jika tombol Login diklik
 	$user=$_POST["user"];
-	$pass=$_POST["pass"];
+	$pass=md5($_POST["pass"]);
 	
 	if($user!="" && $pass!=""){
 		include_once("library/koneksi.php");

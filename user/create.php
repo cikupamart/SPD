@@ -14,10 +14,12 @@ if($_POST["panjar"]){
 			$tgl_kmbl = $_POST['tgl_kmbl'];
 			$cost = $_POST['cost'];
 			$query = mysql_query("insert into panjardb values ('','$no_pek','$nama_pek','$no_trip','$tujuan_dinas','$pan_tujuan','$tgl_acara','$tgl_kmbl','$cost')") or die(mysql_error());
+			if ($query) 
+			{
+				echo"<script>document.location='?menu=view'</script>";
+			}
 }
-			if ($query) {
-	header('location:index.php?menu=view');
-}
+			
 if($_POST["tujuan"]){
 			$nama_tujuan = $_POST['nama_tujuan'];			
 			$query1 = mysql_query("insert into tujuan values ('','$nama_tujuan')") or die(mysql_error());
@@ -38,7 +40,7 @@ if($_POST["tujuan"]){
 						<div class="form-group">
 							<label class="control-label col-lg-4">No Pekerja</label>
 							<div class="col-lg-4">
-								<input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?=$_SESSION['user'];?>" select/>
+								<input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?=$_SESSION['Iduser'];?>" select/>
 							</div>
 						</div>
 						<div class="form-group">

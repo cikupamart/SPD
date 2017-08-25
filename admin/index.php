@@ -73,7 +73,7 @@ if($_SESSION["user"]!="" && $_SESSION["pass"]!=""){
 							<a href="index.php">Home</a>
 						</li>
 						<li >
-							<a href="?menu=create">Create</a>
+							<a href="?menu=user">User</a>
 						</li>
 						<li >
 							<a href="?menu=view">View</a>

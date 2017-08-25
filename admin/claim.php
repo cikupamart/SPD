@@ -59,88 +59,87 @@ if(isset($_POST['trans'])){
 }
 			trans();
 ?>
-<style type="text/css">
-.panel.panel-default .panel-body .table.table-striped.table-bordered.table-hover thead tr th {
-	text-align: center;
-}
-</style>
+    <style type="text/css">
+        .panel.panel-default .panel-body .table.table-striped.table-bordered.table-hover thead tr th {
+            text-align: center;
+        }
+    </style>
 
-<div>
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			Aplikasi Panjar Pertamina
-		</div>
-		<div class='panel-body'>
-			
-			<form action="" method="POST" class="form-horizontal">
-						<div class="form-group">
-							<label class="control-label col-lg-4">No Pekerja</label>
-							<div class="col-lg-4">
-								<input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["no_pek"];?>">
-								
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Nama Pekerja</label>
-							<div class="col-lg-4">
-								<input type="text" name="nama_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["nama_pek"];?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">No Trip</label>
-							<div class="col-lg-4">
-								<input type="text" name="no_trip" autofocus required class="form-control" readonly value="<?php echo $editDb["no_trip"];?>" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tujuan</label>
-							<div class="col-lg-4">
-							<input type="text" name="pan_tujuan" autofocus required class="form-control" readonly value="<?php echo $editDb["pan_tujuan"];?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tanggal Keberangkatan</label>
-							<div class="col-lg-2">
-								<input type="date"  class="form-control" autofocus required placeholder="1998-05-09" name="tgl_acara" readonly value="<?php echo $editDb["tgl_acara"];?>"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-lg-4">Tanggal Kembali</label>
-							<div class="col-lg-2">
-								<input type="date"  class="form-control" autofocus required placeholder="1998-05-09" name="tgl_kmbl" readonly value="<?php echo $editDb["tgl_kmbl"];?>" />
-							</div>
-						</div>											
-		
-		<div class='panel panel-default'>
-		<div class='panel-heading'>
-			Rincian Makan
-		</div>
-		<div class='panel-body'>
-		<div class="col-lg-2">
-								<a href="#myModal4" class="btn btn-primary btn-rect" data-toggle="modal">Tambah</a><p>
-							</div>	
-			<table class="table table-striped table-bordered table-hover" border="2">
-				<thead>
-					<tr>
-						<th rowspan="2" text=center align=center >No</th>
-						<th rowspan="2">Tanggal</th>			
-						<th colspan="5" align="center" valign="middle" nowrap="nowrap"  >Tujangan Makan</th>	
-						<th rowspan="2" align="center" valign="middle">Accommodation</th>	
-						<th rowspan="2" align="center" valign="middle">Harga (Rp)</th>			
-						<th rowspan="2" align="center" valign="middle">Daily Allowance</th>
-						<th rowspan="2" align="center" valign="middle">Keterangan</th>
-						<th width="60" rowspan="2" align="center" valign="middle">Aksi</th>
-					</tr>
-					<tr>
-						<th align=center valign="middle" >Makan Pagi</th>
-						<th align="center" valign="middle">Makan Siang</th>
-						<th>Makan Malam</th>
-						<th>Makan lainnya</th>
-						<th>Harga (Rp)</th>
-					</tr>
-				</thead>
-				
-			<?php
+    <div>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+                Aplikasi Panjar Pertamina
+            </div>
+            <div class='panel-body'>
+
+                <form action="" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">No Pekerja</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="no_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["no_pek"];?>">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Nama Pekerja</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="nama_pek" autofocus required class="form-control" readonly value="<?php echo $editDb["nama_pek"];?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">No Trip</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="no_trip" autofocus required class="form-control" readonly value="<?php echo $editDb["no_trip"];?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tujuan</label>
+                        <div class="col-lg-4">
+                            <input type="text" name="pan_tujuan" autofocus required class="form-control" readonly value="<?php echo $editDb["pan_tujuan"];?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tanggal Keberangkatan</label>
+                        <div class="col-lg-2">
+                            <input type="text" class="form-control" autofocus required placeholder="1998-05-09" name="tgl_acara" readonly value="<?php echo date("d F Y", strtotime($editDb["tgl_acara"]));?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Tanggal Kembali</label>
+                        <div class="col-lg-2">
+                            <input type="date" class="form-control" autofocus required placeholder="1998-05-09" name="tgl_kmbl" readonly value="<?php echo date("d F Y", strtotime($editDb["tgl_kmbl"]));?>" />
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            Rincian Makan
+        </div>
+        <div class='panel-body'>
+            <table class="table table-striped table-bordered table-hover" border="2">
+                <thead>
+                    <tr>
+                        <th rowspan="2" text=center align=center>No</th>
+                        <th rowspan="2">Tanggal</th>
+                        <th colspan="5" align="center" valign="middle" nowrap="nowrap">Tujangan Makan</th>
+                        <th rowspan="2" align="center" valign="middle">Accommodation</th>
+                        <th rowspan="2" align="center" valign="middle">Harga (Rp)</th>
+                        <th rowspan="2" align="center" valign="middle">Daily Allowance</th>
+                        <th rowspan="2" align="center" valign="middle">Keterangan</th>
+                    </tr>
+                    <tr>
+                        <th align=center valign="middle">Makan Pagi</th>
+                        <th align="center" valign="middle">Makan Siang</th>
+                        <th>Makan Malam</th>
+                        <th>Makan lainnya</th>
+                        <th>Harga (Rp)</th>
+                    </tr>
+                </thead>
+
+                <?php
 			
 				$pjrSql = "SELECT * FROM transmakan where id_panjar = '".$editDb['id_panjar']."' ";
 				$pjrQry = mysql_query($pjrSql , $server)  or die ("Query panjardb salah : ".mysql_error());
@@ -148,26 +147,43 @@ if(isset($_POST['trans'])){
 				while ($pjr = mysql_fetch_array($pjrQry)){
 				$nomor++;
 			?>
-				<tbody>
-					<tr>
-						<td align=center ><?php echo  $nomor; ?></td> 
-						<td align=center ><?php echo $pjr['tgl'];?></td>
-						<td align=center ><?php echo $pjr['mkn_pg'];?></td>
-						<td align=center ><?php echo $pjr['mkn_sg'];?></td>
-						<td align=center ><?php echo $pjr['mkn_ml'];?></td>
-						<td align=center ><?php echo $pjr['dll'];?></td>
-						<td align=center ><?php echo number_format($pjr['hrglain'],"2",",",".");?></td>
-						<td align=center ><?php echo $pjr['acomodation'];?></td>
-						<td align=center ><?php echo number_format($pjr['BiayaAcom'],"2",",",".");?></td>
-						<td align=center ><?php echo $pjr['daily'];?></td>
-						<td align=center ><?php echo $pjr['ket'];?></td>
-						<td> 
-						  <div class='btn-group'>
-						  <a href="?menu=claimdelete&aksi=hapus&nmr=<?php echo $pjr['id_makan']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png'/></a> 
-						  </div>
-						</td>
-					</tr>
-					<?php 
+                    <tbody>
+                        <tr>
+                            <td align=center>
+                                <?php echo  $nomor; ?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['tgl'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['mkn_pg'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['mkn_sg'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['mkn_ml'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['dll'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo number_format($pjr['hrglain'],"2",",",".");?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['acomodation'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo number_format($pjr['BiayaAcom'],"2",",",".");?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['daily'];?>
+                            </td>
+                            <td align=center>
+                                <?php echo $pjr['ket'];?>
+                            </td>
+                        </tr>
+                        <?php 
 					$pagi+=$pjr['mkn_pg'];
 					$siang+=$pjr['mkn_sg'];
 					$malam+=$pjr['mkn_ml'];
@@ -183,9 +199,9 @@ if(isset($_POST['trans'])){
 					
 					} 					
 					?>
-				
-					<tr style="background-color: yellow;"">
-						<td colspan="2" align=center><label>JUMLAH</td>
+
+                        <tr style="background-color: yellow;">
+                            <td colspan="2" align=center><label>JUMLAH</td>
 						<td align=center><label><?php echo $pagi;?></td>
 						<td align=center><label><?php echo $siang;?></td>
 						<td align=center><label><?php echo $malam;?></td>
@@ -194,7 +210,7 @@ if(isset($_POST['trans'])){
 						<td align=center><label><?php echo $com;?></td>
 						<td align=center><label><?php echo number_format($hcom,"2",",",".");?></td>
 						<td align=center><label><?php echo $Daily_Allowence;?></td>
-						<td colspan="2" align=center></td>
+						<td colspan="1" align=center></td>
 					</tr>
 				
 				</tbody>	
@@ -206,9 +222,7 @@ if(isset($_POST['trans'])){
 			Rincian Transportasi
 		</div>
 		<div class='panel-body'>
-		<div class="col-lg-2">
-								<a href="#myModal5" class="btn btn-primary btn-rect" data-toggle="modal">Tambah</a><p>
-							</div>	
+		
 			<table class="table table-striped table-bordered table-hover" border="0|0">
 				<thead>
 					<tr>
@@ -220,8 +234,7 @@ if(isset($_POST['trans'])){
 						<th>Jenis Transportasi</th>
 						<th>Harga<br>(Rp)</th>
 						<th>Total<br>(Rp)</th>
-						<th>Keterangan</th>
-						<th width="60" rowspan="2" align="center" valign="middle">Aksi</th>						
+						<th>Keterangan</th>			
 					</tr>
 				</thead>
 				
@@ -248,12 +261,7 @@ if(isset($_POST['trans'])){
 						<td align=center ><?php echo $trans['jns_trans'];?></td>
 						<td align=center ><?php echo $trans['harga'];?></td>
 						<td align="center"><?php echo number_format(preg_replace("/[^0-9]/", "", $trans['harga'])*$trans['qty'],"2",",","."); ?> </td>
-						<td align=center ><?php echo $trans['keterangan'];?></td>
-						<td>
-						  <div class='btn-group'>
-						  <a href="?menu=claim2delete&aksi=hapus&nmr=<?php echo $trans['id_trans']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png'/></a> 
-						  </div>
-						</td>
+						<td align=center ><?php echo $trans['keterangan'];?></td>						
 					</tr>
 					<?php 
 					$a+= preg_replace("/[^0-9]/", "", $trans['harga'])*$trans['qty'];
@@ -262,7 +270,7 @@ if(isset($_POST['trans'])){
 					$qry = mysql_query("select SUM() as jumlahtrans from transportasi where id_panjar='".$_GET["nmr"]."' ");
 					$data = mysql_fetch_array($qry);
 					?>
-					<tr style="background-color: yellow;"">
+					<tr style="background-color: yellow;">
 						<td colspan="7" align=center><label>JUMLAH</td>
 						<td align="center"><label><?php echo number_format($a,"2",",",".");?></td>
 						<td colspan="2" align=center></td>
@@ -536,7 +544,9 @@ if(isset($_POST['trans'])){
 				
 			</div>
 		</div>
-		
+		<div class="pull-left ">
+				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $uangpanjar?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
+				</div>
 		
 		</form>
 		</div>

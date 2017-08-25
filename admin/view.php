@@ -31,12 +31,12 @@ $max	 = ceil($jml/$row);
 						<th>Tanggal Acara</th>
 						<th>Tanggal Kembali</th>
 						<th>Estimate Cost</th>
-						<th width="120">Aksi</th>
+						<th width="120">Detail</th>
 					</tr>
 				</thead>
 			<?php
 				
-				$pjrSql = "SELECT * FROM panjardb where no_pek= '".$_SESSION['Iduser']."' ";
+				$pjrSql = "SELECT * FROM panjardb";
 				$pjrQry = mysql_query($pjrSql , $server)  or die ("Query panjardb salah : ".mysql_error());
 				$nomor  = 0 ; 
 				while ($pjr = mysql_fetch_array($pjrQry)){
@@ -53,18 +53,14 @@ $max	 = ceil($jml/$row);
 						<td><?php echo $pjr['tgl_acara'];?></td>
 						<td><?php echo $pjr['tgl_kmbl'];?></td>
 						<td><?php echo $pjr['cost'];?></td>
-						<td>
-						  <div class='btn-group'>
-						  <a href="?menu=pjrdelete&aksi=hapus&nmr=<?php echo $pjr['id_panjar']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png'/></a> 
-						  <a href="?menu=edit_panjar&aksi=edit&nmr=<?php echo $pjr['id_panjar']; ?>" class="btn btn-xs btn-info tipsy-kiri-atas" title='Edit Data ini'><img src='../image/edit.png'/></a>
-						  <a href="?menu=claim&aksi=edit&nmr=<?php echo $pjr['id_panjar']; ?>&panjar=<?php echo $pjr['cost'];?>" class="btn btn-xs btn-info tipsy-kiri-atas" title='Claim Panjar'><img src='../image/add.png'/></a>
-						  </div>
+						<td align="center">
+						  <a href="?menu=claim&aksi=edit&nmr=<?php echo $pjr['id_panjar']; ?>&panjar=<?php echo $pjr['cost'];?>" class="btn btn-xs btn-info tipsy-kiri-atas" title='Claim Panjar'><img src='../image/detail.png' width="40px" height="40px"/></a>						  
 						</td>
 					</tr>
 				</tbody>
 			<?php } ?>
 					<tr>
-						<td colspan="6" align="right">
+						<td colspan="10" align="center">
 						<?php
 						for($h = 1; $h <= $max; $h++){
 							$list[$h] = $row*$h-$row;
