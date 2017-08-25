@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.8)
-# Date: 2017-08-24 22:47:51
+# Date: 2017-08-26 04:16:02
 # Generator: MySQL-Front 6.0  (Build 1.163)
 
 
@@ -24,7 +24,7 @@ CREATE TABLE `panjardb` (
 # Data for table "panjardb"
 #
 
-INSERT INTO `panjardb` VALUES (13,2,'Ken Dianto','0887/315','241512','asgasg','2017-07-26','0000-00-00','12.454.151'),(14,1,'admin','215215','125215','Jayapura','2017-07-29','0000-00-00','21.512.525'),(15,1,'admin','215125','125125','21421','2017-07-29','0000-00-00','12.515.215'),(16,2,'Ken Dianto','LL/14302/2017-s5','rekondisi','Makassar','2017-08-26','0000-00-00','12.000.000'),(17,3,'Candra Kampret','345232','Pelatihan','21412','2017-08-24','2017-08-26','6.000.000');
+INSERT INTO `panjardb` VALUES (17,3,'Candra Kampret','345232','Pelatihan','21412','2017-08-24','2017-08-26','6.000.000'),(19,4,'Ramdhani','342342','Pelatihan','JKT','2017-08-26','2017-08-28','6.000.000'),(20,4,'Ramdhani','6242342','Rapat Dinas','JKT','2017-08-29','2017-08-31','10.000.000');
 
 #
 # Structure for table "transmakan"
@@ -51,7 +51,7 @@ CREATE TABLE `transmakan` (
 # Data for table "transmakan"
 #
 
-INSERT INTO `transmakan` VALUES (8,14,'2017-08-09',1,1,1,2,50000,1,1,350000,''),(9,14,'2017-08-15',1,2,1,1,60000,2,1,400000,''),(10,17,'2017-08-26',7,7,7,1,500000,3,1,1500000,'Perjalanan Dinas');
+INSERT INTO `transmakan` VALUES (10,17,'2017-08-26',7,7,7,1,500000,3,1,1500000,'Perjalanan Dinas'),(11,19,'2017-08-26',1,1,1,0,0,1,1,1200000,'Fix'),(12,19,'2017-08-27',1,1,1,5,100000,0,0,0,'');
 
 #
 # Structure for table "transportasi"
@@ -75,7 +75,7 @@ CREATE TABLE `transportasi` (
 # Data for table "transportasi"
 #
 
-INSERT INTO `transportasi` VALUES (8,14,'2017-08-19','DJJ','BIK',2,' 2','1.200.000','2.4','Testing'),(9,14,'2017-08-26','ZRI','DJJ',3,' 2','2.000.000','6000000','Testing'),(10,14,'2017-08-01','SBY','DJJ',5,'1','3.000.000.','15000000','Pulang'),(11,14,'2017-08-26','JKT','DJJ',2,'1','2.000.000','4000000','Pulang'),(12,13,'2017-08-26','DJJ','MKQ',2,'','100.000','200','Testing'),(13,13,'2017-08-20','ZRI','BIK',5,'','2.000.000','10','Testing'),(14,17,'2017-08-24','DJJ','UPG',2,'Pesawat','1.500.000','1.5','Pergi'),(15,17,'2017-08-26','UPG','DJJ',1,'Pesawat','2.000.000','2','Pulang');
+INSERT INTO `transportasi` VALUES (14,17,'2017-08-24','DJJ','UPG',2,'Pesawat','1.500.000','1.5','Pergi'),(15,17,'2017-08-26','UPG','DJJ',1,'Pesawat','2.000.000','2','Pulang');
 
 #
 # Structure for table "tujuan"
@@ -85,13 +85,13 @@ CREATE TABLE `tujuan` (
   `id_tujuan` int(11) NOT NULL AUTO_INCREMENT,
   `nama_tujuan` varchar(255) DEFAULT '',
   PRIMARY KEY (`id_tujuan`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "tujuan"
 #
 
-INSERT INTO `tujuan` VALUES (1,'21412'),(2,'DJJ');
+INSERT INTO `tujuan` VALUES (1,'21412'),(2,'DJJ'),(3,'JKT');
 
 #
 # Structure for table "user"
@@ -112,4 +112,4 @@ CREATE TABLE `user` (
 # Data for table "user"
 #
 
-INSERT INTO `user` VALUES (1,'admin','buka','admin','admin','admin','Admin'),(2,'123','123','Ken Dianto','Administrasi','MOR VIII Jayapura','Admin'),(3,'candra','candra','Candra Kampret','Staf','Jayapura','User');
+INSERT INTO `user` VALUES (1,'admin','buka','admin','admin','admin','Admin'),(2,'123','123','Ken Dianto','Administrasi','MOR VIII Jayapura','Admin'),(3,'candra','2614ae3c375c3095dc536283672548bd','Candra Kampret','Staf','Jayapura','User'),(4,'dani','55b7e8b895d047537e672250dd781555','Ramdhani','Staff Oprasional','Nabire','User');
