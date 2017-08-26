@@ -1,7 +1,4 @@
 <?php
-if($_GET["aksi"] && $_GET["nmr"]){
-include_once("../library/koneksi.php");
-session_start();
 $uangpanjar = preg_replace("/[^0-9]/", "", $_GET['panjar']);
 $pagi;
 $siang;
@@ -15,7 +12,10 @@ $hcom;
 $BiayaAco=array();
 $SubtotalAco=0;
 $a=0;
-
+$id_panjar;
+if($_GET["aksi"] && $_GET["nmr"]){
+include_once("../library/koneksi.php");
+session_start();
 			
 if($_SESSION["user"]!="" && $_SESSION["pass"]!=""){
 $edit = mysql_query("select * from panjardb where id_panjar='".$_GET["nmr"]."'");
@@ -188,7 +188,7 @@ if(isset($_POST['trans'])){
                                             </td>
                                             <td>
                                                 <div class='btn-group'>
-                                                    <a href="?menu=claimdelete&aksi=hapus&nmr=<?php echo $pjr['id_makan']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png' /></a>
+                                                    <a href="?menu=claimdelete&aksi=hapus&id_makan=<?php echo $pjr['id_makan'];?>&id_panjar=<?php echo$id_panjar;?>&uangpanjar=<?php echo $uangpanjar;?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><img src='../image/hapus.png' /></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -564,6 +564,7 @@ if(isset($_POST['trans'])){
 			
 		</div>
 		<div class="pull-left ">
+				<a href="#print" data-toggle="modal"><img src='../image/printer.png' width="50px " height="50px " /></a>
 				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $uangpanjar?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
 				</div>
 		
@@ -578,4 +579,12 @@ if(isset($_POST['trans'])){
 }else{
 	header("Location:../index.php ");
 }
+if(isset($_POST['addpejabat']))
+{
+	$namapejabat 	= $_POST['nama'];
+	$jabatans		= $_POST['jabatan'];
+	echo"<script>alert('$namapejabat, $jabatans, $id_panjar, $uangpanjar')</script>";
+}
+
 ?>
+
