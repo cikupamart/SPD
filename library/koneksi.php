@@ -1,6 +1,6 @@
 <?php
-	$server = mysql_connect("localhost","root","");
-	$db = mysql_select_db("spd");
+	$server = mysql_connect("localhost","id2709169_root","123456");
+	$db = mysql_select_db("id2709169_spd");
 	
 	if(!$server){
 		echo "Maaf, Gagal tersambung dengan server !";

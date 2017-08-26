@@ -5,7 +5,7 @@ if($_GET){
 		$del = "DELETE FROM transportasi WHERE id_trans ='".$_GET["nmr"]."'";
 		$delDb = mysql_query($del,$server) or die("Error hapus data ".mysql_error());
 		if($delDb){
-			echo "<meta http-equiv='refresh' content='0; url=?menu=view>";
+			echo "<script>document.location='?menu='</script>";
 		}
 	}else{
 		echo "<center><div class='alert alert-warning alert-dismissable'>

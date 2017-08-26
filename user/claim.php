@@ -1,4 +1,9 @@
 <?php
+$IdPanjar 	= $_GET['nmr'];
+$Panjar		= $_GET['panjar'];
+if($_GET["aksi"] && $_GET["nmr"]){
+include_once("../library/koneksi.php");
+session_start();
 $uangpanjar = preg_replace("/[^0-9]/", "", $_GET['panjar']);
 $pagi;
 $siang;
@@ -12,11 +17,7 @@ $hcom;
 $BiayaAco=array();
 $SubtotalAco=0;
 $a=0;
-$id_panjar;
-if($_GET["aksi"] && $_GET["nmr"]){
-include_once("../library/koneksi.php");
-session_start();
-			
+$id_panjar="";			
 if($_SESSION["user"]!="" && $_SESSION["pass"]!=""){
 $edit = mysql_query("select * from panjardb where id_panjar='".$_GET["nmr"]."'");
 $editDb = mysql_fetch_assoc($edit);
@@ -564,8 +565,9 @@ if(isset($_POST['trans'])){
 			
 		</div>
 		<div class="pull-left ">
-				<a href="#print" data-toggle="modal"><img src='../image/printer.png' width="50px " height="50px " /></a>
-				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $uangpanjar?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
+				<a href="#addpejabar" data-toggle="modal"><img src='../image/addpejabat.ico' width="50px" height="50px" /></a>
+				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $_GET['panjar']?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
+				<a target="_blank " href="report.php?aksi=excel"><img src='../image/excel.png' width="50px " height="50px " /></a>
 				</div>
 		
 		</form>
@@ -581,9 +583,22 @@ if(isset($_POST['trans'])){
 }
 if(isset($_POST['addpejabat']))
 {
-	$namapejabat 	= $_POST['nama'];
-	$jabatans		= $_POST['jabatan'];
-	echo"<script>alert('$namapejabat, $jabatans, $id_panjar, $uangpanjar')</script>";
+	$nama1 		= $_POST['nama1'];
+	$jabatan1	= $_POST['jabatan1'];
+	$nama2 		= $_POST['nama2'];
+	$jabatan2	= $_POST['jabatan2'];
+	$Simpan=mysql_query("insert into ttd values('','$IdPanjar','$nama1','$jabatan1','$nama2','$jabatan2')")or die(mysql_error());
+	if($Simpan)
+	{	
+		echo "<script>alert('Sucsess')</script>";
+		echo "<script>document.location='?menu=claim&aksi=edit&nmr=$IdPanjar&panjar=$Panjar'</script>";
+	}
+	else
+	{
+		echo "<script>alert('Gagal')</script>";
+		echo "<script>document.location='?menu=claim&aksi=edit&nmr=$IdPanjar&panjar=$Panjar'</script>";
+	}
+	
 }
 
 ?>
