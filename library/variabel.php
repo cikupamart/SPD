@@ -245,3 +245,42 @@ function trans(){
 			</div>
 		</div>
 	</div>
+
+	<div id="addpejabat" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Pejabat Penanggung Jawab</h4>
+				</div>
+				<div class="modal-body">
+				<form action="" method="POST">
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Nama Pejabat</label>
+							<input type="text" required class="form-control" name="nama1"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Jabatan</label>
+							<input type="text" required class="form-control" name="jabatan1"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Nama Pejabat</label>
+							<input type="text" required class="form-control" name="nama2"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Jabatan</label>
+							<input type="text" required class="form-control" name="jabatan2"/>
+						</div>
+							<input type="submit" class="btn btn-primary" name="addpejabat" value="Tambah"/>
+					</form>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	

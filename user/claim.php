@@ -1,6 +1,10 @@
 <?php
 $IdPanjar 	= $_GET['nmr'];
 $Panjar		= $_GET['panjar'];
+$namas1="";
+$jabatans1="";
+$namas2="";
+$jabatans2="";
 if($_GET["aksi"] && $_GET["nmr"]){
 include_once("../library/koneksi.php");
 session_start();
@@ -128,9 +132,8 @@ if(isset($_POST['trans'])){
                                     <tr>
                                         <th rowspan="2" text=center align=center>No</th>
                                         <th rowspan="2">Tanggal</th>
-                                        <th colspan="5" align="center" valign="middle" nowrap="nowrap">Tujangan Makan</th>
+                                        <th colspan="4" align="center" valign="middle" nowrap="nowrap">Tujangan Makan</th>
                                         <th rowspan="2" align="center" valign="middle">Accommodation</th>
-                                        <th rowspan="2" align="center" valign="middle">Harga (Rp)</th>
                                         <th rowspan="2" align="center" valign="middle">Daily Allowance</th>
                                         <th rowspan="2" align="center" valign="middle">Keterangan</th>
                                         <th width="60" rowspan="2" align="center" valign="middle">Aksi</th>
@@ -140,7 +143,6 @@ if(isset($_POST['trans'])){
                                         <th align="center" valign="middle">Makan Siang</th>
                                         <th>Makan Malam</th>
                                         <th>Makan lainnya</th>
-                                        <th>Harga (Rp)</th>
                                     </tr>
                                 </thead>
 
@@ -171,15 +173,9 @@ if(isset($_POST['trans'])){
                                             </td>
                                             <td align=center>
                                                 <?php echo $pjr['dll'];?>
-                                            </td>
-                                            <td align=center>
-                                                <?php echo number_format($pjr['hrglain'],"2",",",".");?>
-                                            </td>
+                                            </td>                                            
                                             <td align=center>
                                                 <?php echo $pjr['acomodation'];?>
-                                            </td>
-                                            <td align=center>
-                                                <?php echo number_format($pjr['BiayaAcom'],"2",",",".");?>
                                             </td>
                                             <td align=center>
                                                 <?php echo $pjr['daily'];?>
@@ -216,9 +212,7 @@ if(isset($_POST['trans'])){
 						<td align=center><label><?php echo $siang;?></td>
 						<td align=center><label><?php echo $malam;?></td>
 						<td align=center><label><?php echo $lain;?></td>
-						<td align=center><label><?php echo $hrglain;?></td>
 						<td align=center><label><?php echo $com;?></td>
-						<td align=center><label><?php echo number_format($hcom,"2 ",", ",". ");?></td>
 						<td align=center><label><?php echo $Daily_Allowence;?></td>
 						<td colspan="2 " align=center></td>
 					</tr>
@@ -565,7 +559,27 @@ if(isset($_POST['trans'])){
 			
 		</div>
 		<div class="pull-left ">
-				<a href="#addpejabar" data-toggle="modal"><img src='../image/addpejabat.ico' width="50px" height="50px" /></a>
+				<?php 
+				$qcek = mysql_query("select * from ttd where id_panjar='$id_panjar'")or die(mysql_error());
+				$ada=mysql_num_rows($qcek);
+				$datapejabat=mysql_fetch_array($qcek);
+				if($ada==0)
+				{
+				?>
+					<a href="#addpejabat" data-toggle="modal"><img src='../image/addpejabat.ico' width="50px" height="50px" /></a>
+				<?php
+				}else
+				{					
+					$namas1	= $datapejabat[2];
+					$jabatans1 = $datapejabat[3];
+					$namas2	= $datapejabat[4];
+					$jabatans2 = $datapejabat[5];
+				?>
+					<a href="#editpejabat" data-toggle="modal"><img src='../image/addpejabat.ico' width="50px" height="50px" /></a>
+				<?php
+				}
+				?>
+				
 				<a target="_blank " href="report.php?aksi=print&IdPanjar=<?php echo $id_panjar;?>&uangpanjar=<?php echo $_GET['panjar']?>"><img src='../image/printer.png' width="50px " height="50px " /></a> 
 				<a target="_blank " href="report.php?aksi=excel"><img src='../image/excel.png' width="50px " height="50px " /></a>
 				</div>
@@ -601,5 +615,55 @@ if(isset($_POST['addpejabat']))
 	
 }
 
+if(isset($_POST['updatepejabat']))
+{
+	$nama1 		= $_POST['nama1'];
+	$jabatan1	= $_POST['jabatan1'];
+	$nama2 		= $_POST['nama2'];
+	$jabatan2	= $_POST['jabatan2'];
+	$update = mysql_query("update ttd set nama1='$nama1', nama2='$nama2', jabatan1='$jabatan1', jabatan2='$jabatan2'")or die(mysql_error());
+	if($update)
+	{
+		echo "<script>alert('Update Sucsess')</script>";
+		echo "<script>document.location='?menu=claim&aksi=edit&nmr=$IdPanjar&panjar=$Panjar'</script>";
+	}
+}
+
 ?>
 
+<div id="editpejabat" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Edit Pejabat Penanggung Jawab</h4>
+				</div>
+				<div class="modal-body">
+				<form action="" method="POST">
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Nama Pejabat</label>
+							<input type="text" required class="form-control" name="nama1" value="test"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Jabatan</label>
+							<input type="text" required class="form-control" name="jabatan1" value="<?php echo $jabatans1;?>"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Nama Pejabat</label>
+							<input type="text" required class="form-control" name="nama2" value="<?php echo $namas2;?>"/>
+						</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label class="control-label col-lg">Jabatan</label>
+							<input type="text" required class="form-control" name="jabatan2" value="<?php echo $jabatans2;?>"/>
+						</div>
+							<input type="submit" class="btn btn-primary" name="updatepejabat" value="Update"/>
+					</form>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
