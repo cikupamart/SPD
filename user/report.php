@@ -394,7 +394,7 @@
 			
 			<?php
                 $ttds = mysql_query("select * from ttd where id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
-				$Datattd = mysql_fetch_array($ttds));
+				while($Datattd = mysql_fetch_array($ttds));
 				{
 					
                     ?>
