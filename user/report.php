@@ -16,6 +16,11 @@
     {      
         $Panjars = mysql_query("select * from panjardb,user where panjardb.no_pek=user.username and panjardb.id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
         $DataPanjars=mysql_fetch_array($Panjars);
+		
+		$ttd = mysql_query("select * from ttd where id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
+		$Datattd=mysql_fetch_array($ttd);
+				
+				
 ?>
     <div>
        <img src='../image/logo-ptmn.gif' align="right" />
@@ -391,21 +396,14 @@
 							</th>
 						</tr>
             </table>
-			
-			<?php
-                $ttds = mysql_query("select * from ttd where id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
-				while($Datattd = mysql_fetch_array($ttds));
-				{
-					
-                    ?>
 					
 <table width="600" align="center">
 	<tr>
     	<td width="300" align=center ></td>
-        <td width="300" align=center ><?php echo $Datattd['tempattgl'];?></td>
+        <td width="300" align=center ><?php echo $Datattd['2'];?></td>
     </tr>
 	<tr>
-    	<td width="300" align=center ><?php echo $Datattd[4];?></td>
+    	<td width="300" align=center ><?php echo $Datattd[3];?></td>
         <td width="300" align=center >Pemohon Claim</td>
     </tr>
     <tr>
@@ -413,26 +411,23 @@
         <td width="300" height="74" >&nbsp;</td>
   </tr>
     <tr>
-    	<td width="300" align=center ><?php echo $Datattd[5];?></td>
-        <td width="300" align=center >Pemohon Claim</td>
+    	<td width="300" align=center ><?php echo $Datattd[4];?></td>
+        <td width="300" align=center ><?php echo $DataPanjars[12];?></td>
     </tr>
     <tr>
     	<td colspan="2" align=center >Mengetahui</td>
     </tr>
 	<tr>
-    	<td colspan="2" align=center ><?php echo $Datattd[7];?></td>
+    	<td colspan="2" align=center ><?php echo $Datattd[6];?></td>
     </tr>
     <tr>
     	<td colspan="2" height="74">&nbsp;</td>
     </tr>
     <tr>
-   	  <td colspan="2" align=center><?php echo $Datattd[6];?></td>
+   	  <td colspan="2" align=center><?php echo $Datattd[5];?></td>
     </tr>
 </table>
-<?php
-    }
-?>
-        
+     
 <?php
     }
 ?>
