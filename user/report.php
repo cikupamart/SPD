@@ -387,7 +387,7 @@
                     <th>=</th>
                     <th>Rp.</th>
                     <th width="40%" align="right">
-                        <?php echo number_format($_GET['uangpanjar'],"0",",",".");?>
+                        <?php echo number_format(preg_replace("/[^0-9]/","", $_GET['uangpanjar']),"0",",",".");?>
                     </th>
                 </tr>
             </table>
@@ -399,7 +399,7 @@
                     <th>=</th>
                     <th>Rp.</th>
                     <th width="40%" align="right">
-                        <b><?php echo number_format($STtl-$_GET['uangpanjar'],"0",",",".");?></b>
+                        <b><?php echo number_format($STtl-preg_replace("/[^0-9]/","", $_GET['uangpanjar']),"0",",",".");?></b>
                     </th>
                 </tr>
             </table>
