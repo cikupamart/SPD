@@ -14,64 +14,61 @@
     include("../library/koneksi.php");
     if(isset($_GET['aksi'])=="print")
     {      
-        $Panjars = mysql_query("select * from panjardb,user where panjardb.no_pek=user.Iduser and panjardb.id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
+        $Panjars = mysql_query("select * from panjardb,user where panjardb.no_pek=user.username and panjardb.id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
         $DataPanjars=mysql_fetch_array($Panjars);
 ?>
     <div>
-        <img src='../image/logo-ptmn.gif' />
-        <img src='../image/logo.jpg' align="right"/>
+       <img src='../image/logo-ptmn.gif' align="right" />
     </div>
-    <h1 align="center">PANJAR SPD PERTAMINA</h1><br>
-    <center>
-        <div style="margin-right: 400px; margin-left: 400px; border: 3px solid #aaa;">
+    <br><br><br>
+	<h3 align="center">LAPORAN PERJALANAN DINAS DALAM NEGERI</h3><br>
             <table border="0">
-                <tr>
-                    <td align="right">Nomor Pekrja</td>
-                    <td align="left">:</td>
-                    <td align="left">
+			<tr>
+                <td>Nomor Pekerja</td>
+                    <td>:</td>
+                    <td>
                         <b><?php echo $DataPanjars[1];?></b>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Nama Pekerja</td>
-                    <td align="left">:</td>
-                    <td align="left">
+                    <td>Nama Pekerja</td>
+                    <td>:</td>
+                    <td>
                         <b><?php echo $DataPanjars[12];?></b>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Nomor Trip</td>
-                    <td align="left">:</td>
-                    <td align="left">
+                    <td>Nomor Trip</td>
+                    <td>:</td>
+                    <td>
                         <?php echo $DataPanjars[3];?>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Tujuan</td>
-                    <td align="left">:</td>
-                    <td align="left">
+                    <td>Tujuan</td>
+                    <td>:</td>
+                    <td>
                         <?php echo $DataPanjars[5];?>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Tanggal Keberangkatan</td>
-                    <td align="left">:</td>
-                    <td align="left">
+                    <td>Tanggal Keberangkatan</td>
+                    <td>:</td>
+                    <td>
                         <?php echo $DataPanjars[6];?>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Tanggal Kembali</td>
-                    <td align="left">:</td>
-                    <td align="left">
+                    <td>Tanggal Kembali</td>
+                    <td>:</td>
+                    <td>
                         <?php echo $DataPanjars[7];?>
                     </td>
                 </tr>
-
             </table>
         </div>
     </center>
-    <h3>Rincian Makan</h3>
+    <h3>RINCIAN MAKAN</h3>
     <table border="2">
         <thead>
             <tr>
@@ -174,7 +171,7 @@
                 </tr>
         </thead>
     </table>
-    <h3>Rincian Transportasi</h3>
+    <h3>RINCIAN TRANSPORTASI</h3>
     <table border="2" width="100%">
         <thead>
             <tr>
@@ -236,7 +233,7 @@
                     </tr>
         </thead>
     </table>
-    <h3 align="left">Perhitungan Rincian Panjar Pertamina</h3>
+    <h3 align="left">PERHITUNGAN RINCIAN PANJAR</h3>
     <table width="60%">
         <tr>
             <th colspan="7" align="left">Meal Allowence</th>
@@ -368,7 +365,6 @@
     <?php
     $STtl=$SubtotalAco+($malam*75000)+($siang*75000)+($pagi*75000)+$hrglain+($Daily_Allowence*100000)+$a;
     ?>
-        <div style="margin-right: 200px; margin-left: 500px; border: 3px solid #aaa;">
             <table>
                 <tr>
                     <th width="45%" align="left">Sub Total</th>
@@ -378,11 +374,7 @@
                         <?php echo number_format($STtl,"0",",",".");?>
                     </th>
                 </tr>
-            </table>
-        </div>
-        <div style="margin-right: 200px; margin-left: 500px; border: 3px solid #aaa;">
-            <table>
-                <tr>
+				<tr>
                     <th width="45%" align="left">Panjar Dinas</th>
                     <th>=</th>
                     <th>Rp.</th>
@@ -390,25 +382,60 @@
                         <?php echo number_format(preg_replace("/[^0-9]/","", $_GET['uangpanjar']),"0",",",".");?>
                     </th>
                 </tr>
+				<tr>
+							<th width="45%" align="left">Total Claim</th>
+							<th>=</th>
+							<th>Rp.</th>
+							<th width="40%" align="right">
+								<b><?php echo number_format($STtl-preg_replace("/[^0-9]/","", $_GET['uangpanjar']),"0",",",".");?></b>
+							</th>
+						</tr>
             </table>
-        </div>
-        <div style="margin-right: 200px; margin-left: 500px; border: 3px solid #aaa;">
-            <table>
-                <tr>
-                    <th width="45%" align="left">Total Claim</th>
-                    <th>=</th>
-                    <th>Rp.</th>
-                    <th width="40%" align="right">
-                        <b><?php echo number_format($STtl-preg_replace("/[^0-9]/","", $_GET['uangpanjar']),"0",",",".");?></b>
-                    </th>
-                </tr>
-            </table>
-        </div>
-
-        <script>
-            window.print();
-        </script>
-
-        <?php
+			
+			<?php
+                $ttds = mysql_query("select * from ttd where id_panjar='$_GET[IdPanjar]'")or die(mysql_error());
+				$Datattd = mysql_fetch_array($ttds));
+				{
+					
+                    ?>
+					
+<table width="600" align="center">
+	<tr>
+    	<td width="300" align=center ></td>
+        <td width="300" align=center ><?php echo $Datattd['tempattgl'];?></td>
+    </tr>
+	<tr>
+    	<td width="300" align=center ><?php echo $Datattd[4];?></td>
+        <td width="300" align=center >Pemohon Claim</td>
+    </tr>
+    <tr>
+    	<td width="300" height="74">&nbsp;</td>
+        <td width="300" height="74" >&nbsp;</td>
+  </tr>
+    <tr>
+    	<td width="300" align=center ><?php echo $Datattd[5];?></td>
+        <td width="300" align=center >Pemohon Claim</td>
+    </tr>
+    <tr>
+    	<td colspan="2" align=center >Mengetahui</td>
+    </tr>
+	<tr>
+    	<td colspan="2" align=center ><?php echo $Datattd[7];?></td>
+    </tr>
+    <tr>
+    	<td colspan="2" height="74">&nbsp;</td>
+    </tr>
+    <tr>
+   	  <td colspan="2" align=center><?php echo $Datattd[6];?></td>
+    </tr>
+</table>
+<?php
     }
 ?>
+        
+<?php
+    }
+?>
+<script>
+            window.print();
+        </script>
