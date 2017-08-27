@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.8)
-# Date: 2017-08-26 04:16:02
+# Date: 2017-08-28 04:49:31
 # Generator: MySQL-Front 6.0  (Build 1.163)
 
 
@@ -18,7 +18,7 @@ CREATE TABLE `panjardb` (
   `tgl_kmbl` date NOT NULL DEFAULT '0000-00-00',
   `cost` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_panjar`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "panjardb"
@@ -45,13 +45,13 @@ CREATE TABLE `transmakan` (
   `ket` text,
   PRIMARY KEY (`id_makan`),
   KEY `id_panjar` (`id_panjar`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "transmakan"
 #
 
-INSERT INTO `transmakan` VALUES (10,17,'2017-08-26',7,7,7,1,500000,3,1,1500000,'Perjalanan Dinas'),(11,19,'2017-08-26',1,1,1,0,0,1,1,1200000,'Fix'),(12,19,'2017-08-27',1,1,1,5,100000,0,0,0,'');
+INSERT INTO `transmakan` VALUES (11,19,'2017-08-26',1,1,1,0,0,1,1,1200000,'Fix'),(12,19,'2017-08-27',1,1,1,5,100000,0,0,0,'');
 
 #
 # Structure for table "transportasi"
@@ -76,6 +76,27 @@ CREATE TABLE `transportasi` (
 #
 
 INSERT INTO `transportasi` VALUES (14,17,'2017-08-24','DJJ','UPG',2,'Pesawat','1.500.000','1.5','Pergi'),(15,17,'2017-08-26','UPG','DJJ',1,'Pesawat','2.000.000','2','Pulang');
+
+#
+# Structure for table "ttd"
+#
+
+CREATE TABLE `ttd` (
+  `id_ttd` int(11) NOT NULL AUTO_INCREMENT,
+  `id_panjar` int(11) NOT NULL DEFAULT '0',
+  `tempattgl` date DEFAULT NULL,
+  `nama1` varchar(255) DEFAULT NULL,
+  `jabatan1` varchar(255) DEFAULT NULL,
+  `nama2` varchar(255) DEFAULT NULL,
+  `jabatan2` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_ttd`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+#
+# Data for table "ttd"
+#
+
+INSERT INTO `ttd` VALUES (3,19,NULL,'testasdfa','tewst','test','test');
 
 #
 # Structure for table "tujuan"
@@ -106,10 +127,10 @@ CREATE TABLE `user` (
   `penempatan` varchar(255) NOT NULL DEFAULT '',
   `hakakses` enum('Admin','User','Super User') NOT NULL DEFAULT 'Admin',
   PRIMARY KEY (`Iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "user"
 #
 
-INSERT INTO `user` VALUES (1,'admin','buka','admin','admin','admin','Admin'),(2,'123','123','Ken Dianto','Administrasi','MOR VIII Jayapura','Admin'),(3,'candra','2614ae3c375c3095dc536283672548bd','Candra Kampret','Staf','Jayapura','User'),(4,'dani','55b7e8b895d047537e672250dd781555','Ramdhani','Staff Oprasional','Nabire','User');
+INSERT INTO `user` VALUES (1,'admin','bcc5a4a17e88b5a31d0450dd994cf677','admin','admin','admin','Admin'),(2,'123','202cb962ac59075b964b07152d234b70','Ken Dianto','Administrasi','MOR VIII Jayapura','Admin'),(3,'candra','2614ae3c375c3095dc536283672548bd','Candra Kampret','Staf','Jayapura','User'),(4,'dani','55b7e8b895d047537e672250dd781555','Ramdhani','Staff Oprasional','Nabire','User');
