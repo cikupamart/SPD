@@ -117,6 +117,25 @@ if(isset($_POST['trans'])){
                             <input type="date" class="form-control" autofocus required placeholder="1998-05-09" name="tgl_kmbl" readonly value="<?php echo $editDb['tgl_kmbl'];?>" />
                         </div>
                     </div>
+					<?php
+					$QRegulasi=mysql_query("select * from panjardb where id_panjar='$IdPanjar'")or die(mysql_error());
+					$CekReulasi=mysql_fetch_array($QRegulasi);
+					if($CekReulasi['regulasi']==NULL)
+					{?>
+						<div class="pull-right">
+							<a href="#addregulasi" class="btn btn-primary btn-rect" data-toggle="modal">Upload Regulasi</a>                               
+						</div><br><br><br>
+					<?php
+					}else
+					{?>
+						<div class="pull-right">
+							<a href="../image/FilesSpd/<?php echo $CekReulasi['regulasi']?>" class="btn btn-primary btn-rect" target="_blank" data-toggle="modal">Download</a>                               
+						</div><br><br><br>
+					<?php
+					}
+					?>
+
+
 
                     <div class='panel panel-default'>
                         <div class='panel-heading'>
@@ -667,3 +686,57 @@ if(isset($_POST['updatepejabat']))
 			</div>
 		</div>
 	</div>
+
+<?php
+	if(isset($_POST['Upload']))
+	{
+		$file		= $_FILES['FileRegulasi']['name'];
+		//echo"<script>alert('Succsess')</script>";
+
+
+		$direktori = '../image/FilesSpd/';
+		$max_size  = 4000000; //Ukuran file maximal 4Mb
+		$nama_file = $_FILES['FileRegulasi']['name'];
+		$file_size = $_FILES['FileRegulasi']['size'];
+		$nama_tmp  = $_FILES['FileRegulasi']['tmp_name'];
+		$upload 	= (file_exists($direktori.$nama_file)) ? $direktori." copy of ".$nama_file : $direktori.$nama_file;//Memposisikan direktori penyimpanan dan file
+		if((isset($nama_file)) && ($nama_file != ""))
+		{
+			if($file_size <= $max_size)
+			{	
+			  move_uploaded_file($nama_tmp, $upload);	
+			 if($upload)
+			 {				
+				$simpanRegulasi = mysql_query("update panjardb set regulasi='$file' where id_panjar='$IdPanjar'")or die (mysql_error());
+				if($simpanRegulasi)
+				{
+					echo "<script language=javascript>\n";
+					echo "window.alert('File Regulasi berhasil di upload')";
+					echo "</script>";
+					echo "<script>document.location='?menu=claim&aksi=edit&nmr=$id_panjar&panjar=$uangpanjar'</script>";
+				}
+				   //echo "<script>document.location='?p=dafregulasi'</script>";
+			}
+			 //echo "File Berhasil diupload ke Direktori: ".$direktori.$nama_file."";
+			 else{
+				   echo "<script language=javascript>\n";
+				   echo "window.alert('Maaf, $file GAGAL diupload')";
+				   echo "</script>";	
+			   }
+		   }
+		   else
+		   {
+			   echo "window.alert('Maaf, File $file GAGAL diupload, karena lebih dari $max_size ')";
+		   }
+		}
+	   else
+	   {
+		//Jika ukuran file lebih besar dari yang ditentukan
+			   echo "<script language=javascript>\n";
+			   echo "window.alert('Tidak ada file ')";
+			   echo "</script>";	
+		
+		//echo "File ".$nama_file." Gagal di Upload, karena terlalu besar, batas yang ditentukan adalah : ".$max_size." bait.";
+	   }	
+	}
+?>

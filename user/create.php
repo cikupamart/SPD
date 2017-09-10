@@ -13,7 +13,8 @@ if($_POST["panjar"]){
 			$tgl_acara = $_POST['tgl_acara'];
 			$tgl_kmbl = $_POST['tgl_kmbl'];
 			$cost = $_POST['cost'];
-			$query = mysql_query("insert into panjardb values ('','$no_pek','$nama_pek','$no_trip','$tujuan_dinas','$pan_tujuan','$tgl_acara','$tgl_kmbl','$cost')") or die(mysql_error());
+			$Regulasi=NULL;
+			$query = mysql_query("insert into panjardb (id_panjar, no_pek, nama_pek, no_trip, tujuan_dinas, pan_tujuan, tgl_acara, tgl_kmbl, cost)values ('','$no_pek','$nama_pek','$no_trip','$tujuan_dinas','$pan_tujuan','$tgl_acara','$tgl_kmbl','$cost')") or die(mysql_error());
 			if ($query) 
 			{
 				echo"<script>document.location='?menu=view'</script>";

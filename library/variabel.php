@@ -282,5 +282,27 @@ function trans(){
 			</div>
 		</div>
 	</div>
-
+<div id="addregulasi" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tambah Rincian Panjar</h4>
+            </div>
+            <div class="modal-body">
+			
+				<form action="" method="post" enctype="multipart/form-data">					
+					<form action="" method="post">
+						<div class="form-group">						
+							<label for="Regulasi">
+								File input
+							</label>
+							<input type="file" id="Regulasi" name="FileRegulasi"/>
+						</div>				
+						<input type="submit" class="btn btn-primary" name="Upload" value="Upload"/>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
 	
